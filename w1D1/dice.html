@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #bag{
+            display: flex;
+            margin-top: 10px;
+            justify-content: space-evenly;
+        }
+        #member-1{
+            height: 50px;
+            font-size: 30px;
+            text-align: center;
+            width: 50px;
+            border: 1px solid red;
+        }
+        #member-2{
+            height: 50px;
+            font-size: 30px;
+            text-align: center;
+            width: 50px;
+            border: 1px solid red;
+        }
+        #member-3{
+            height: 50px;
+            font-size: 30px;
+            text-align: center;
+            width: 50px;
+            border: 1px solid red;
+        }
+        #roll{
+            margin-left: 46%;
+            margin-top: 30px;
+        }
+        .gn{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="bag">
+        <div id="member-1"></div>
+        <div id="member-2"></div>
+        <div id="member-3"></div>
+    </div>
+    <!-- <button id="roll">ROLL THE DICE</button> -->
+</body>
+</html>
+
+<script>
+    
+    document.querySelector("#bag").addEventListener("click",run)
+
+    function run(){
+        event.preventDefault();
+
+        var box = document.createElement("div")
+        // var D1 = document.getElementById("member-1").innerHTML = Math.floor(Math.random()*6)+1;
+        // var D2 = document.getElementById("member-2").innerHTML = Math.floor(Math.random()*6)+1;
+        // var D3 = document.getElementById("member-3").innerHTML = Math.floor(Math.random()*6)+1;
+
+        // // if(D1>D2 && D1>D3){
+        // //     D1.innerText = "green"
+        // // }
+        // console.log(D1,D2,D3)
+        // box.append(D1)
+        // document.querySelector("#member-1").append(box);
+
+        var D1 = document.createElement("h5")
+        D1.innerText = Math.floor(Math.random()*6)+1;
+
+        box.append(D1)
+        document.querySelector("#bag").append(box);
+    }
+
+</script>

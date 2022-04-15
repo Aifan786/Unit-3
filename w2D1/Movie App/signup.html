@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            height: 60px;
+            width: 100%;
+            background-color: teal;
+            border: 1px solid black;
+        }
+        #boxIn{
+            display: flex;
+            height: 60px;
+            width: 20%;
+            font-size: 20px;
+            margin-left: 80%;
+            justify-content: space-around;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        #boxIn a{
+            color: black;
+            font-weight: bold;
+        }
+        #boxIn a:hover{
+            color: white;
+        }
+        #box2{
+            height: 400px;
+            width: 28%;
+            /* border: 1px solid black; */
+            margin: auto;
+            margin-top: 5%;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+        }
+        h1{
+            text-align: center;
+            margin-top: 5%;
+        }
+        input,
+        select {
+            display: block;
+            margin: 15px 0px;
+            margin-left: 18%;
+            font-size: 20px;
+            padding: 2%;
+            border-radius: 5px;
+        }
+        #inp5{
+            margin-top: 5%;
+            margin-left: 35%;
+            height: 40px;
+            width: 30%;
+            border-radius: 5px;
+            color: white;
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="boxIn">
+         <div><a href="index.html">Home</a></div>
+         <div><a href="signup.html">Signup</a></div>
+         <div><a href="login.html">Login</a></div>
+        </div>
+    </div>
+    <div id="box2">
+        <form>
+            <h1>Signup</h1>
+            <input id="inp1" type="text" placeholder="Enter your Name">
+            <input id="inp2" type="number" placeholder="Enter your Contact">
+            <input id="inp3" type="text" placeholder="Enter your Email">
+            <input id="inp4" type="text" placeholder="Enter your Password">
+            <input id="inp5" type="submit"/>
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("form").addEventListener("submit",myfunc)
+
+    var data = JSON.parse(localStorage.getItem("info"))||[];
+
+    function myfunc(){
+        event.preventDefault();
+        
+        var name = document.querySelector("#inp1").value;
+        var contact = document.querySelector("#inp2").value;
+        var email = document.querySelector("#inp3").value;
+        var password = document.querySelector("#inp4").value;
+
+        var infoObj = {
+            Name: name,
+            Contact: contact,
+            Email: email,
+            Password: password,
+        };
+
+        data.push(infoObj);
+        console.log(data);
+
+        localStorage.setItem("info", JSON.stringify(data));
+    }
+
+</script>

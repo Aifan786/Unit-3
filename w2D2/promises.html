@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="image" src="https://media2.giphy.com/media/11ASZtb7vdJagM/200w.webp?cid=ecf05e47vzzoalslogs7t82r7toy8rwfa9y7fcxagc2znxhl&rid=200w.webp&ct=g">
+</body>
+</html>
+
+
+<script>
+    
+    function chechTranasaction(){
+        return true;
+    }
+
+    const myPromise = new Promise(function (resolve,reject){
+        let transaction_status = false;
+        setTimeout(function(){
+            transaction_status = chechTranasaction();
+          
+            if(transaction_status===true){
+                resolve("Payment Successfull")
+            }
+            else{
+                reject("Payment failed")
+            }
+
+        },3000)
+    });
+
+    myPromise.then(function(res){
+        console.log("res:",res);
+        image.src = "https://media2.giphy.com/media/g9582DNuQppxC/200w.webp?cid=ecf05e47ivf9u9tn51qyo3lvyo6wjxn0lm3wbc7aq0nkqtpc&rid=200w.webp&ct=g"
+    })
+    .catch(function(err){
+        console.log("this is my error:", err);
+    })
+
+</script>

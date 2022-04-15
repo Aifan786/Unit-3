@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            height: 60px;
+            width: 100%;
+            background-color: teal;
+            border: 1px solid black;
+        }
+        #boxIn{
+            display: flex;
+            height: 60px;
+            width: 20%;
+            font-size: 20px;
+            margin-left: 80%;
+            justify-content: space-around;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        #boxIn a{
+            color: black;
+            font-weight: bold;
+        }
+        #boxIn a:hover{
+            color: white;
+        }
+        #box2{
+            height: 280px;
+            width: 28%;
+            /* border: 1px solid black; */
+            margin: auto;
+            margin-top: 5%;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+        }
+        h1{
+            text-align: center;
+            margin-top: 5%;
+        }
+        input,
+        select {
+            display: block;
+            margin: 15px 0px;
+            margin-left: 18%;
+            font-size: 20px;
+            padding: 2%;
+            border-radius: 5px;
+        }
+        #inp2{
+            margin-top: 5%;
+            margin-left: 35%;
+            height: 40px;
+            width: 30%;
+            border-radius: 5px;
+            color: white;
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="boxIn">
+         <div><a href="index.html">Home</a></div>
+         <div><a href="signup.html">Signup</a></div>
+         <div><a href="login.html">Login</a></div>
+        </div>
+    </div>
+    <div id="box2">
+        <h1>Login</h1>
+        <form>
+            <input id="mail" type="text" placeholder="Enter your Email">
+            <input id="password" type="text" placeholder="Enter your Password">
+            <input id="inp2" type="submit" placeholder="Submit">
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    
+    document.querySelector("form").addEventListener("submit",myfunc)
+    var data2 = JSON.parse(localStorage.getItem("info"))||[];
+
+    function myfunc(){
+        event.preventDefault();
+        var email = document.querySelector("#mail").value;
+        var password = document.querySelector("#password").value;
+        // console.log(data2)
+        var flag = false;
+        for(var i=0; i<data2.length; i++){
+            if(email===data2[i].Email && password==data2[i].Password){
+                flag = true;
+                break;
+            }
+        }
+        if(flag==true){
+            alert("login successful")
+            window.location.href = "index.html";
+        }
+        else{
+            alert("Invalid Credentials")
+        }
+    }
+        
+
+        
+</script>

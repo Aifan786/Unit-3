@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inherited</title>
+</head>
+<body>
+   <h2>AUTOMOBILE INHERITANCE MODEL</h2>
+</body>
+</html>
+
+<script>
+
+//Object.create()
+
+    const fourWheeler = {
+        steering: 1,
+        required: 'petrol',
+        alert: 'horn',
+        engine: 1
+    }
+    let fourWheeeler = JSON.parse(localStorage.getItem("Oparts"))||[];
+
+    const car = Object.create(fourWheeler)
+    console.log("car:", car)
+
+    const van = Object.create(fourWheeler)
+    console.log("van:", van)
+
+    const miniBus = Object.create(fourWheeler)
+    console.log("miniBus:", miniBus)
+
+    // arr.push(car)
+    localStorage.setItem("Oparts", JSON.stringify(fourWheeler))
+
+// *****construtor function*****
+    
+    let arr1 = [];
+    function fourWheelers (s,r,a,e){
+        let arr1 = JSON.parse(localStorage.getItem("parts"))||[];
+        this.steering = s;
+        this.required = r;
+        this.alert = a;
+        this.engine = e;
+    }
+    let cars = new fourWheelers(1,"petrol","horn",1);
+    console.log("cars:", cars)
+
+    const vans = new fourWheelers(1,"petrol","horn",1);
+    console.log("vans:", vans)
+    
+    var miniBuss = new fourWheelers(1,"petrol","horn",1);
+    console.log("miniBuss:", miniBuss)
+
+    arr1.push(cars,vans,miniBuss)
+    localStorage.setItem("parts", JSON.stringify(arr1))
+    
+</script>

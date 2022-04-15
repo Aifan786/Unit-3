@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <style>
+
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,25%);
+            margin: 5%;
+            grid-gap: 20px;
+        }
+        img{
+            width: 50%;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Store</h1>
+    <input type="text" id="movie" placeholder="enter movie name">
+    <button onclick="show()">Submit</button>
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+
+function show(){
+
+    let movie = document.getElementById("movie").value;
+
+    const url = `https://www.omdbapi.com/?apikey=20b4886&s=${movie}`;
+
+    fetch(url)
+        .then(function(res){
+
+            return res.json();
+        })
+        .then(function(res){
+
+            console.log("res:",res);
+            console.log("res:",res.Search);
+            appendData(res.Search)
+        })
+        .catch(function(err){
+            console.log("err:",err)
+        });
+}
+    function appendData(data){
+
+        data.forEach(function(el){
+           
+            let  container = document.getElementById("container")
+            // container.innerHTML = null; 
+
+            let div = document.createElement("div");
+
+            var Poster = document.createElement("img");
+            Poster.src = el.Poster
+
+            var Title = document.createElement("h3");
+            Title.innerText = el.Title;
+
+            var Year = document.createElement("p");
+            Year.innerText = `Released date: ${el.Year}`;
+
+            var imdbID = document.createElement("p");
+            imdbID.innerText = `imdbID: ${el.imdbID}`;
+
+            div.append(Poster,Title,Year,imdbID)
+
+            container.append(div)
+        });
+    }
+
+</script>

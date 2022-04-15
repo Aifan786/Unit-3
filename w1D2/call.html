@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shairing</title>
+</head>
+<body>
+    <h2>Amar Akbar Anthony</h2>
+</body>
+</html>
+
+<script>
+
+let Amar = {
+   name: "Amar",
+   skill: "singer",
+}
+
+let Akbar = {
+    name: "Akbar",
+    skill: "chef",
+}
+
+let Anthony = {
+    name: "Anthony",
+    skill: "magician",
+}
+
+function borrow(skl1,skl2){
+    console.log(`${this.name} also have a skill of ${skl1} and ${skl2}`);
+}
+
+// borrow.apply(Amar, ["chef","magician","singer"])
+// borrow.apply(Anthony, ["chef","magician","singer"])
+
+borrow.call(Anthony,"chef","singer")
+borrow.call(Amar,"chef","magician")
+borrow.call(Akbar,"singer","magician")
+
+</script>

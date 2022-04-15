@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    // const student={
+
+    //     unit: 3,
+    //     batch: 'web17',
+    //     instructor: 'SK',
+
+    // };
+
+    // const S1 = Object.create(student);
+    // console.log('S1:', S1)
+    // const S2 = Object.create(student);
+    // const S3 = Object.create(student);
+// 
+
+    // function student (n,u){
+    //     this.name = n,
+    //     this.unit = u
+    // }
+    // student.prototype.course ="fswd";
+
+    // let s1 = new student("Saber",3)
+    // console.log(s1)
+
+    // *****
+
+    function shoes(b,p){
+
+        this.brand = b,
+        this.seller = 'flipkart',
+        this.price = p
+    }
+     
+     shoes.prototype.coupon = function(){
+         console.log("20% discount on this product");
+     }
+    
+     let s1 = new shoes("nike",3000)
+     console.log("s1:", s1)
+     s1.coupon();
+
+    //  console.log(typeof null)
+    //  console.log(1 == '1')
+</script>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <style>
+      #buttons{
+       /* display: flex; */
+       margin-left: 400px;
+       font-size: 20px;
+       /* justify-content: space-around; */
+      }#detailed{
+          margin-left: 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="buttons">
+      <!--Create buttons namely “Scope”, “Hoisting”, ‘Constructor Functions’, ‘Prototype’ in index.html. Each button will have it's respective name as HTML id. For e.g Scope button will HTML id as "scope". ( Note: no capital letter in id )-->
+      <button id="scope">Scope</button>
+      <button id="hoisting">Hoisting</button>
+      <button id="constructor">‘Constructor Functions’</button>
+      <button id="prototype">‘Prototype’</button>
+    </div>
+    <div id="detailed"></div>
+  </body>
+</html>
+
+<script>
+    
+    var info1 = [
+      {
+        title: "SCOPE",
+        points1: "JavaScript has function scope: Each function creates a new scope.",
+        points2: "Variables defined inside a function are not accessible (visible) from outside the function.",
+        points3: "Variables declared with var, let and const are quite similar when declared inside a function."
+      },
+    //   {
+    //     htitle: "HOisting",
+    //     hpoints1: "In JavaScript, a variable can be declared after it has been used.",
+    //     hpoints2: "Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope ",
+    //     hpoints3: "Variables defined with let and const are hoisted to the top of the block, but not initialized."
+    //   }
+    ];
+
+    var bag = JSON.parse(localStorage.getItem("result"))||[];
+
+    document.querySelector("#scope").addEventListener("click",mydocu)
+
+    function mydocu(){
+      event.preventDefault();
+      info1.filter(function(el){
+        
+        var bag = document.createElement("div");
+
+        var titl = document.createElement("ul");
+        titl.innerText = el.title
+        
+        var txt1 = document.createElement("li");
+        txt1.innerText = el.points1;
+
+        var txt2 = document.createElement("li");
+        txt2.innerText = el.points2;
+
+        bag.append(titl,txt1,txt2)
+        document.querySelector("#detailed").append(bag);
+
+        localStorage.setItem("result", JSON.stringify(bag))
+    })
+    }
+
+    // HOisting
+
+    // var text = JSON.parse(localStorage.getItem("result2"))||[];
+
+    // document.querySelector("#hoisting").addEventListener("click",mydocum)
+
+    // function mydocum(){
+    //   event.preventDefault();
+    //   info1.filter(function(el){
+        
+    //     var bag = document.createElement("div");
+
+    //     var titl = document.createElement("ul");
+    //     titl.innerText = el.htitle
+        
+    //     var txt1 = document.createElement("li");
+    //     txt1.innerText = el.hpoints1;
+
+    //     var txt2 = document.createElement("li");
+    //     txt2.innerText = el.hpoints2;
+
+    //     bag.append(titl,txt1,txt2)
+    //     document.querySelector("#detailed").append(bag);
+    //     localStorage.setItem("result2",JSON.stringify(text))
+    // })
+    // }
+
+</script>

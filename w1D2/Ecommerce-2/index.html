@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce-2</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 40px;
+        }
+    </style>
+</head>
+<body>
+    <button><a href="cart.html">Go to Cart</a></button>
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+
+    var data = [
+        {
+            image: "https://content.shop4reebok.com/static/Product-EX4296/reebok_EX4296_1.jpg.plp",
+            name: "Roadmap Shoes",
+            category: "Adidas",
+            price: 999,
+            sold: false,
+        },
+        {
+            image: "https://content.shop4reebok.com/static/Product-EX3921/reebok_EX3921_1.jpg.plp",
+            name: "Flip Slippers",
+            category: "Nike",
+            price: 1299,
+            sold: true,
+        },
+        {
+            image: "https://content.shop4reebok.com/static/Product-EX4160/reebok_EX4160_1.jpg.plp",
+            name: "Running Austin Shoes",
+            category: "Campus",
+            price: 1499,
+            sold: false,
+        },
+        {
+            image: "https://content.shop4reebok.com/static/Product-FV8798/MEN_SWIM_SLIPPERS_FV8798_1.jpg.plp",
+            name: "Swimming Flip Slippers",
+            category: "Reebook",
+            price: 399,
+            sold: true,
+        }
+    ]
+
+    var cartData = JSON.parse(localStorage.getItem("cart"))||[]
+    window.addEventListener("load",function(){
+        display(data)
+    })
+
+    function display(data){
+
+        document.querySelector("#container").innerHTML = "";
+        data.map(function(el){
+
+            var box = document.createElement("div");
+
+            var img = document.createElement("img");
+            img.src = el.image;
+
+            var nm = document.createElement("h3");
+            nm.textContent = el.name;
+
+            var cate = document.createElement("h4");
+            cate.textContent = el.category;
+
+            var prc = document.createElement("p");
+            prc.textContent = el.price;
+
+            var btn = document.createElement("button");
+            btn.innerText = "Add to cart";
+            btn.addEventListener("click", function(){
+                addToCart(el)
+            })
+            box.append(img,nm,cate,prc,btn)
+            document.querySelector("#container").append(box)
+        })
+    }
+
+    function addToCart(el){
+        cartData.push(el)
+        localStorage.setItem("cart", JSON.stringify(cartData))
+        alert("Item added to cart")
+        // window.location
+    }
+</script>

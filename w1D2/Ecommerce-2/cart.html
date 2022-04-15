@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #counter{
+            font-weight: bold;
+        }
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>Cart Page</h2>
+    <div id="counter"></div>
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+
+    var cartdata = JSON.parse(localStorage.getItem("cart"))
+
+    var counter = cartdata.length;
+
+    document.querySelector("div").innerText = ` Counter = ${counter} `
+
+    cartdata.map(function(el,index){
+
+            var box = document.createElement("div");
+
+            var img = document.createElement("img");
+            img.src = el.image;
+
+            var nm = document.createElement("h3");
+            nm.textContent = el.name;
+
+            var cate = document.createElement("h4");
+            cate.textContent = el.category;
+
+            var prc = document.createElement("p");
+            prc.textContent = el.price;
+           
+            var btn = document.createElement("button");
+            btn.innerText = "Remove Item";
+            btn.addEventListener("click", function(){
+                removeItem(el,index)
+            })
+
+            var btn2 = document.createElement("button");
+            btn2.innerText = "Sold";
+            btn2.addEventListener("click", function(){
+                if(soldItem(el,index)==true){
+                    btn2.style.color = "red";
+                    btn2.innerText = "Sold-out";
+                }
+                else{
+                    btn2.style.color = "green";
+                    btn2.innerText = "Avialble";
+                }
+            })
+
+            box.append(img,nm,cate,prc,btn,btn2)
+            document.querySelector("#container").append(box)
+    })
+    function removeItem(el,index){
+       cartdata.splice(index,1)
+       localStorage.setItem("cart", JSON.stringify(cartdata))
+       window.location.reload();
+    }
+
+    function soldItem(el,index){
+       if(el.sold === false){
+         el.sold = true
+         return el.sold;
+         console.log(el.sold)
+       }
+       else{
+           el.sold = false
+           return el.sold;
+           console.log(el.sold)
+       }
+    //    localStorage.setItem("cart", JSON.stringify(cartdata))
+    //    window.location.reload();
+    }
+
+
+</script>
