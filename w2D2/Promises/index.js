@@ -56,8 +56,8 @@ function order(){
                 resolve(items);
             }
             else{
-                reject();
-                console.log("Not available")
+                reject("Not available");
+                // console.log("Not available")
             }
         },time)
     
@@ -128,8 +128,11 @@ function order(){
             document.querySelector("#served").append(name,num,img4)
         }
 
+    })
+    .catch(function(err){
+        console.log("err:", err)
+        gif.src = "https://media3.giphy.com/media/3o7aD4XavHnL5UsWEE/200.webp?cid=ecf05e471e4yver9r3gy2tzq178rp274u5y0nxnolmyv95xe&rid=200.webp&ct=g"
 
-        
     })
 
 }

@@ -23,14 +23,14 @@
         setTimeout(function(){
             transaction_status = chechTranasaction();
           
-            if(transaction_status===true){
+            if(transaction_status===false){
                 resolve("Payment Successfull")
             }
             else{
                 reject("Payment failed")
             }
 
-        },3000)
+        },6000)
     });
 
     myPromise.then(function(res){
@@ -39,6 +39,7 @@
     })
     .catch(function(err){
         console.log("this is my error:", err);
+        image.src = "https://media2.giphy.com/media/haZOqHKz9tTfW/giphy.webp?cid=ecf05e47vq0l4v07jbuq3vukda8xgisimhpwvziz5ois6y8x&rid=giphy.webp&ct=g"
     })
 
 </script>
