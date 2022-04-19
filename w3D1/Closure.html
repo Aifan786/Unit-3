@@ -43,9 +43,9 @@
    try{
     const query = document.getElementById('query').value
 
-    let res = await fetch(`https://www.omdbapi.com/?apikey=6a41ddca&s=${query}`)
+    const res = await fetch(`https://www.omdbapi.com/?apikey=6a41ddca&s=${query}`);
 
-    let data = await res.json()
+    const data = await res.json()
 
     const movies = data.Search;
 
@@ -74,7 +74,7 @@
  }
 
 
-async function main(movies){
+async function main(){
 
     let data = await searchMovies();
 
@@ -97,7 +97,7 @@ function debounce(func, delay){
 
     id = setTimeout(function(){
 
-        func();
+    func();
 
     },delay)
 }
