@@ -33,6 +33,7 @@
  
  let movies_div = document.getElementById("movies");
  let id;
+
  async function searchMovies(){
 
  // https://www.omdbapi.com/?apikey=20b4886&s=${movie}
@@ -73,7 +74,7 @@
  }
 
 
-async function main(){
+async function main(movies){
 
     let data = await searchMovies();
 
