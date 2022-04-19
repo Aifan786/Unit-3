@@ -5,15 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
-    <script
-      src="https://kit.fontawesome.com/24c494a6b6.js"
-      crossorigin="anonymous"
-    ></script>
+
     <style>
-        /* #city{
-            font-size: 20px;
-            margin-left: 10%;
-        } */
+        #back{
+            height: 800px;
+            width: 100%;
+            background-color:  aqua;
+        }
+        h1{
+            text-align: center;
+        }
+        #back>#city{
+            display: block;
+            padding: 1%;
+            width: 50%;
+            margin-left: 23%;
+            border-radius: 5px;
+        }
+        #back>#button{
+            width: 20%;
+            margin: 10px;
+            padding: 5px;
+            margin-left: 38%;
+        }
         #container{
             font-size: 20px;
             margin: 45px;
@@ -21,8 +35,9 @@
             width: 20%;
             border-radius: 5px;
             padding-left: 3%;
-            background-color: rgb(27, 139, 128);
-            color: white;
+            background-color: aqua;
+            font-weight: bold;
+            color: black;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
         }
         .gmap_canvas {overflow:hidden;background:none!important;
@@ -36,16 +51,24 @@
     </style>
 </head>
 <body>
-   <h1>Weather</h1> 
-   <input type="text" id="city" placeholder="Enter the city">
-   <button onclick="getData()" id="submit">Submit</button>
-   <!-- <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="NEW YORK" data-label_2="WEATHER" data-theme="original" >NEW YORK WEATHER</a> -->
-   <div id="days">
-<!-- Start WX Widget Code --><div style="color: #455052; max-width: 400px; width: 100%; border: 1px solid #428bca; background-image: radial-gradient(circle, #fff, #f5faff, #e5efff);"></div><!-- End WX Widget Code -->   </div>
-   <div id="container"></div>
-   <div id="box">
-    <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/">divi discount</a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div></div>
+   
+    <div class="section">
+        <video src=""></video>
+    </div>
+   <div id="back">
+        <h1>Weather Report</h1> 
+        <input type="text" id="city" placeholder="Enter the city">
+        <button onclick="getData()" id="button" >Submit</button>
+        <!-- <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="NEW YORK" data-label_2="WEATHER" data-theme="original" >NEW YORK WEATHER</a> -->
+        <div id="container"></div>
+      <div id="box">
+         <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/">divi discount</a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div></div>
+      </div>
+      <div id="days">
+          <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="NEW YORK" data-label_2="WEATHER" data-theme="original" ></a>
+      </div>
    </div>
+   
 
 </body>
 </html>

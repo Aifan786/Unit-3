@@ -36,10 +36,10 @@
        city.innerText = `City: ${data.name}`;
 
        let min = document.createElement("p");
-       min.innerText = `Min temp: ${data.main.temp_min}K`;
+       min.innerText = `Min temp: ${Math.floor(data.main.temp_min)-273}°C`;
 
        let max = document.createElement("p");
-       max.innerText = `Max temp: ${data.main.temp_max}K`;
+       max.innerText = `Max temp: ${Math.floor(data.main.temp_max)-273}°C`;
 
        let current = document.createElement("p");
        current.innerText = `Current temp: ${data.main.temp}K`;
@@ -58,11 +58,15 @@
        cloud2.innerText = `Sunset: ${date.getHours()} PM`;
 
        container.append(city,min,max,current,wind,wind,cloud,cloud2)
-
-       climate.src = `https://www.weatherwx.com/weather-js/in/mumbai.js`
+       
        map.src = `https://maps.google.com/maps?q=${data.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`
        map.setAttribute("class","right")
 
+       (!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js'))
+
+       climate.src = `https://weatherwidget.io/js/widget.min.js`
    }
+
+
 
 

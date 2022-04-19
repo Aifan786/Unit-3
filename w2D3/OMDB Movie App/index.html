@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API</title>
     <style>
+        h1{
+            text-align: center;
+        }
         #movie{
             display: block;
             padding: 1%;
             width: 50%;
-            margin-left: 20%;
+            margin-left: 25%;
             border-radius: 5px;
         }
         #button{
             width: 10%;
             margin: 10px;
             padding: 5px;
-            margin-left: 40%;
+            margin-left: 45%;
         }
         #container{
             display: grid;
@@ -32,7 +35,7 @@
     </style>
 </head>
 <body>
-    <h1>Online Store</h1>
+    <h1>Movie Store</h1>
     <input type="text" id="movie" placeholder="Enter movie name">
     <button onclick="show()" id="button">Submit</button>
     <div id="container"></div>
@@ -47,7 +50,7 @@ function show(){
 
     // https://www.omdbapi.com/?apikey=20b4886&s=${movie}
 
-    const url = `http://www.omdbapi.com/?apikey=20b4886&s=${movie}`;
+    const url = `https://www.omdbapi.com/?apikey=20b4886&s=${movie}`;
 
     fetch(url)
         .then(function(res){
@@ -58,12 +61,18 @@ function show(){
 
             console.log("res:",res);
             console.log("res:",res.Search);
-            appendData(res.Search)
+            if(res.Response=='True') {
+                appendData(res.Search)
+            }
+            else{
+                gifData(container)
+            }
+            
         })
         .catch(function(res){
-            if(res.Response=='False')
-            // console.log("err:",err)
-            gifData()
+           
+            console.log("err:",err)
+            
         });
 }
     function appendData(data){
@@ -93,7 +102,7 @@ function show(){
         });
     }
 
-function gifData(){
+function gifData(c){
     container.src = "https://media0.giphy.com/media/f7Y5MpvlzezdESzoDJ/200w.webp?cid=ecf05e47vmlnulurn016jpjbpgcb9wt6o5nx8q90dqlt9rlk&rid=200w.webp&ct=g"
 }
 </script>
