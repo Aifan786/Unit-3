@@ -44,8 +44,11 @@ const searchVideos = async() => {
     }
 };
 
+
 const append = (videos) => {
     let show_videos = document.getElementById("show_videos");
+
+    let store = JSON.parse(localStorage.getItem("videoArray"))||[];
 
     show_videos.innerHTML = null;
     videos.forEach(({id: {videoId}, snippet: {title}}) => {
@@ -79,5 +82,6 @@ const append = (videos) => {
 
 const showVideo = (x) =>{
     window.location.href = "video.html";
-    localStorage.setItem("video", JSON.stringify(x));
+    store.push(x)
+    localStorage.setItem("videoArray", JSON.stringify(store));
 }
