@@ -13,35 +13,47 @@
 </body>
 </html>
 
-<script>
 
-    
+<!-- <script>
+
+
     let oneVideo = JSON.parse(localStorage.getItem("video"));
 
-    oneVideo.forEach(({id: {videoId}, snippet: {title}}) =>{
+    // oneVideo.forEach(({videoId},{title}) =>{
+    //     let div = document.createElement("div");
 
-        let showIt = document.getElementById("showIt")
-        let div = document.createElement("div");
+    //    let iframe = document.createElement("iframe");
 
-        let iframe = document.createElement("iframe");
+    //    iframe.src = `https://www.youtube.com/embed/${videoId}`
+    //    iframe.width = "100%";
+    //    iframe.height = "100%";
+    //    iframe.allow = "fullscreen";
 
-        iframe.src = videoId
-        iframe.width = "100%";
-        iframe.height = "100%";
-        iframe.allow = "fullscreen";
+    //    let name = document.createElement('h5');
+    //    name.innerText = el.title;
 
-        let name = document.createElement("h4");
-        name.innerText = title;
+    //    div.append(iframe,name);
 
-        div.append(iframe,name);
-        
-        showIt.append(div)
+    //    showIt.append(div)
+    //     localStorage.setItem("video", JSON.stringify(oneVideo))
 
-        localStorage.setItem("video", JSON.stringify(oneVideo))
+    // })
+       
 
-    })
-    
+</script> -->
 
+<script>
 
+let oneVideo = JSON.parse(localStorage.getItem("video"));
+
+oneVideo.map(function(el){
+
+    let div = document.createElement("div");
+
+    let name = document.createElement("h5");
+    name.innerText = el.title;
+
+    div.append(name)
+})
 
 </script>
