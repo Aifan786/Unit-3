@@ -6,25 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
-        #query{
-            width: 200px;
+       h1{
+           margin-left: 6%;
+       }
+        #logo{
+            width: 10%;
+            margin-left: 5%;
+        }
+        #movie{
+            margin-left: 50%;
+            width: 250px;
+            height: 30px;
         }
         #movies{
-            border: solid 1px black;
+            border: solid 1px antiquewhite;
             height: 200px;
-            width: 206px;
+            width: 254px;
+            background-color: antiquewhite;
+            margin-left: 50%;
             border-top: none;
             overflow: scroll;
+        }
+        #box{
+            height: 220px;
+            width: 250px;
+            margin-top: -12%;
+            margin-left: 60%;
         }
     </style>
 </head>
 <body>
     <h1>Hotstar</h1>
+    <img id="logo" src="https://www.exchangewire.com/wp-content/uploads/2020/04/Disney-e1586429179700.png">
 
-    <input oninput="debounce(main,1000)" type="text" id="query"/>
+    <div id="box">
+        <input oninput="debounce(main,1000)" type="text" id="movie" placeholder="Enter movie name"/>
 
-    <div id="movies"></div>
+        <div id="movies"></div>
+    </div>
+    
 
 </body>
 </html>
@@ -38,12 +58,12 @@
 
  // https://www.omdbapi.com/?apikey=20b4886&s=${movie}
 
-//  https://www.omdbapi.com/?apikey=20b4886&s=${movie}
+// https://www.omdbapi.com/?apikey=6a41ddca&s=${query}
    
    try{
-    const query = document.getElementById('query').value
+    const movie = document.getElementById('movie').value
 
-    const res = await fetch(`https://www.omdbapi.com/?apikey=6a41ddca&s=${query}`);
+    const res = await fetch(`https://www.omdbapi.com/?apikey=20b4886&s=${movie}`);
 
     const data = await res.json()
 
@@ -103,3 +123,6 @@ function debounce(func, delay){
 }
 
 </script>
+
+
+<!-- 512c85e14c29a99fed176c58b74da827 -->
