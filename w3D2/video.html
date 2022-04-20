@@ -1,1 +1,47 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particular</title>
+</head>
+<body>
+    <h1>MOVIES</h1>
+    <div id="showIt"></div>
+</body>
+</html>
+
+<script>
+
+    
+    let oneVideo = JSON.parse(localStorage.getItem("video"));
+
+    oneVideo.forEach(({id: {videoId}, snippet: {title}}) =>{
+
+        let showIt = document.getElementById("showIt")
+        let div = document.createElement("div");
+
+        let iframe = document.createElement("iframe");
+
+        iframe.src = videoId
+        iframe.width = "100%";
+        iframe.height = "100%";
+        iframe.allow = "fullscreen";
+
+        let name = document.createElement("h4");
+        name.innerText = title;
+
+        div.append(iframe,name);
+        
+        showIt.append(div)
+
+        localStorage.setItem("video", JSON.stringify(oneVideo))
+
+    })
+    
+
+
+
+</script>
