@@ -26,6 +26,7 @@
             margin-left: 50%;
             border-top: none;
             overflow: scroll;
+
         }
         #box{
             height: 220px;
@@ -67,6 +68,7 @@
 
     const data = await res.json()
 
+    console.log("data:", data)
     const movies = data.Search;
 
     return movies
@@ -77,12 +79,7 @@
  }
  
  function appendMovies(data){
-     //  optimization 1
-    //  if(data === undefined){
-    //      return false;
-    //  }
      
-    //  optimization 2
      movies_div.innerText = null;
     data.forEach(function(el){
 
