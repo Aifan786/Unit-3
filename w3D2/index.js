@@ -2,6 +2,8 @@
 
 // let arr = [1,2,3,4];
 
+// *********By searching***********
+
 // for(let x of arr){
 
 //     console.log(x)
@@ -37,6 +39,7 @@ const searchVideos = async() => {
        const data = await res.json();
 
        console.log(data.items);
+       
        append(data.items)
     }
     catch(err) {
@@ -46,9 +49,10 @@ const searchVideos = async() => {
 
 
 const append = (videos) => {
-    let show_videos = document.getElementById("show_videos");
 
-    let store = JSON.parse(localStorage.getItem("videoArray"))||[];
+    // var store = JSON.parse(localStorage.getItem("videoArray"))||[]
+
+    let show_videos = document.getElementById("show_videos");
 
     show_videos.innerHTML = null;
     videos.forEach(({id: {videoId}, snippet: {title}}) => {
@@ -57,13 +61,14 @@ const append = (videos) => {
        let iframe = document.createElement("iframe");
 
        iframe.src = `https://www.youtube.com/embed/${videoId}`
-
-       iframe.width = "100%";
-       iframe.height = "100%";
+       
+       iframe.width = "80%";
+       iframe.height = "80%";
        iframe.allow = "fullscreen";
 
        let name = document.createElement('h5');
        name.innerText = title;
+       name.setAttribute("class","text")
 
        div.append(iframe,name);
 
@@ -82,6 +87,70 @@ const append = (videos) => {
 
 const showVideo = (x) =>{
     window.location.href = "video.html";
-    store.push(x)
-    localStorage.setItem("videoArray", JSON.stringify(store));
+    // store.push(x)
+    localStorage.setItem("video", JSON.stringify(x));
 }
+
+
+// 
+
+// const api = "AIzaSyA87bWLz5uYaffTu_gkQKgyztRA7zNjMvk"
+
+// async function anything() {
+
+//     try{
+       
+//        const res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=sandeep%20Maheshwari%202&key=${api}`)
+
+//        const data = await res.json();
+
+//        console.log(data.items);
+//        appends(data.items)
+//     }
+//     catch(err) {
+//         console.log(err);
+//     }
+// };
+
+
+// const appends = (videos) => {
+
+
+//     let show_videos = document.getElementById("show_videos");
+
+//     show_videos.innerHTML = null;
+//     videos.forEach(({id: {videoId}, snippet: {title}}) => {
+//        let div = document.createElement("div");
+
+//        let iframe = document.createElement("iframe");
+
+//        iframe.src = `https://www.youtube.com/embed/${videoId}`
+       
+//        iframe.width = "80%";
+//        iframe.height = "80%";
+//        iframe.allow = "fullscreen";
+
+//        let name = document.createElement('h5');
+//        name.innerText = title;
+//        name.setAttribute("class","text")
+
+//        div.append(iframe,name);
+
+//        let data = {
+//            title,
+//            videoId,
+//        }
+
+//        div.onclick = () =>{
+//          showVideo(data);
+//        } 
+
+//        show_videos.append(div);
+//     });
+// };
+
+// const showVideo = (x) =>{
+//     window.location.href = "video.html";
+//     store.push(x)
+//     localStorage.setItem("videoArray", JSON.stringify(store));
+// }
