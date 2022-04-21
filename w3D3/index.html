@@ -18,36 +18,36 @@
 
 // ***********Inheritance
 
-//  class Car{
+ class car{
 
-//     constructor(n,b){
-//         this.name = n;
-//         this.wheels = 4;
-//         this.brand = b;
-//     }
-//  }
+    constructor(n,b){
+        this.name = n;
+        this.wheels = 4;
+        this.brand = b;
+    }
+ }
 
 
-// class Sedan extends Car{
+class Sedan extends car{
 
-//     constructor(n,b) {
+    constructor(n,b) {
 
-//         super(n,b);
-//         this.sunroof = true;
-//     }
-// }
+        super(n,b);
+        this.sunroof = true;
+    }
+}
 
-// class ElectricSedan extends Sedan{
+class ElectricSedan extends Sedan{
 
-//     constructor(n,b,value){
+    constructor(n,b,value){
 
-//         super(n,b)
-//         this.electric = value
-//     }
-// }
+        super(n,b)
+        this.electric = value
+    }
+}
 
-// let s1 = new ElectricSedan('Verna', 'Hyundai', 'true')
-// console.log('s1:', s1)
+let s1 = new ElectricSedan('Verna', 'Hyundai', 'true')
+console.log('s1:', s1)
 
 // *********Encapsulation
 // getter and setter method
