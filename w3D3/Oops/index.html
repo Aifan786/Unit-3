@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oops</title>
+</head>
+<body>
+    <h1>Object oreinted programming</h1>
+</body>
+</html>
+
+<script>
+
+// ------------Inheritance------------------
+
+    class Cat_family{
+
+        constructor(l,c,k){
+            
+            this.legs = l;
+            this.furs = true;
+            this.claws = c;
+            this.kind = k
+        }
+    }
+    // const features = new Cat_family(4,"sharp")
+    //  console.log('features:', features)
+
+    class Tiger extends Cat_family{
+
+        constructor(l,c,k){
+
+            super(l,c,k);
+            this.wild = true
+        }
+    }
+    
+    class Cheetah extends Tiger{
+
+        constructor(l,c,k){
+
+            super(l,c,k);
+        }
+    }
+
+    class Lion extends Cheetah{
+
+        constructor(l,c,k){
+
+            super(l,c,k);
+        }
+    }
+    const features = new Lion(4,"sharp","Omnivores")
+    console.log('features:', features)
+
+
+// ----------------Encapsulation------------------
+
+   class online{
+        
+      constructor(){
+
+        let name;
+        let amount;
+      }
+      getName(){
+          return this.name;
+      }
+      setName(value){
+          this.name = value
+      }
+
+   }
+   const result = new online();
+
+   result.setName("Imran, your payment is successfull");
+
+   console.log("result:",result.getName())
+
+// ----------------Abstraction--------------------
+
+
+    class opinion{
+
+        constructor(n,r){
+
+            this.name = n;
+            this.rating = r;
+            this.fav_movies = [];
+        }
+        Movies(a,b,c){
+            this.fav_movies.push(a,b,c)
+        }
+    }
+    
+    const a1 = new opinion("Raghav",10)
+    a1.Movies("KGF2","3 Idiot","Avengers")
+    console.log('a1:', a1)
+
+    // ---------------Polymorphism---------------
+
+    class placements{
+
+        job(){
+            console.log("Students at Masai school got placed")
+        }
+    }
+    class Amazon extends placements{
+
+        job(){
+             console.log("Job at Amazon")
+        }
+    }
+    class Swiggy extends Amazon{
+
+        job(){
+             console.log("Job at Swiggy")
+        }
+    }
+    
+    let j1 = new placements();
+    let j2 = new Amazon();
+    let j3 = new Swiggy();
+
+    j1.job();
+    j2.job();
+    j3.job();
+
+</script>

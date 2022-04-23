@@ -52,29 +52,29 @@ console.log('s1:', s1)
 // *********Encapsulation
 // getter and setter method
 
-    // class Employee{
+    class Employee{
 
-    //     constructor(){
-    //         // this.name = n;
-    //         // this.rating = r;
+        constructor(){
+            // this.name = n;
+            // this.rating = r;
 
-    //         let name;
-    //         let rating;
-    //     }
-    //     getName(){
-    //         return this.name;
-    //     }
+            let name;
+            let rating;
+        }
+        getName(){
+            return this.name;
+        }
 
-    //     setName(value){
-    //         this.name = value;
-    //     }
-    // }
+        setName(value){
+            this.name = value;
+        }
+    }
 
-    // let e1 = new Employee();
+    let e1 = new Employee();
 
-    // e1.setName("pablo");
+    e1.setName("pablo");
 
-    // console.log(e1.getName());
+    console.log(e1.getName());
 
 // **************Abstraction
 
@@ -126,7 +126,9 @@ let v1 = new Vehicle();
 let v2 = new Car();
 let v3 = new Truck();
 
+v1.run()
 v2.run()
+v3.run()
 
 
 
